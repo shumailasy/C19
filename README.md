@@ -151,6 +151,19 @@ For the RandomForest, the model was trained with 10-fold cross-validation (cv) b
 accuracy = 0.4642857
 error = 0.5357143
 
+## 
+## Call:
+##  randomForest(x = x, y = y, mtry = param$mtry, importance = TRUE) 
+##                Type of random forest: classification
+##                      Number of trees: 500
+## No. of variables tried at each split: 2
+## 
+##         OOB estimate of  error rate: 0%
+## Confusion matrix:
+##         Covid Healthy class.error
+## Covid       6       0           0
+## Healthy     0       5           0
+
 # table
 predicted.classes_rf
 ## observed.classes Covid Healthy
