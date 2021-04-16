@@ -1,5 +1,3 @@
-[toc]
-
 # Methods/Results/Discussion
 
 ## Illumina Infinium 850K data analysis
