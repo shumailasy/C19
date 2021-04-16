@@ -124,7 +124,6 @@ In the Cytoscape (v3.8), we used StringDB enrichment analysis API package to cal
 
 The above interactome was placed as input file to perform the enrichment analysis of functional categories and pathways. We used string pathway analysis using gene ontology biological processes, reactome pathways and KEGG pathways. A total of 142, 99 and 78 enriched terms were found in GO Biological processes, Reactome pathways and KEGG pathways, respectively (**<u>Figure 3</u>** ; Supplementary File S1). 
 
-<img src="/home/jyoda68/.config/Typora/typora-user-images/image-20201105165259036.png" alt="image-20201105165259036" style="zoom:73%;" />
 
 **<u>Figure 3</u>**: The donut chart portrays the number of enriched terms associated with the ontology and pathway analyses. The color scale were described in the figure legend. 
 
@@ -144,3 +143,79 @@ We calculated the gene ratio and the false discovery rates to locate the stronge
 
 **<u>Figure 4:</u>** Top 4 pathways those contain both DMGs from our data. Gene count calculates the number of genes from our data, Gene ratio was calculated as the ratio of genes present in our data over the number of genes for the respective pathway in the databases. FDR represents the BH-corrected *p*-values. Circle size determines the gene count and color depicts the FDR value.
 
+
+## Machine Learning Analysis
+I used both LDA and Random Forest for training the model with the cohort1 dataset and use the predict function from caret package (for Random Forest) using the training model to predict the test data (Cohort2). 
+
+For the RandomForest, the model was trained with 10-fold cross-validation (cv) based on the "Group" (COVID and Healthy) over the all CpGs.
+
+```
+accuracy = 0.4642857
+error = 0.5357143
+
+# table
+predicted.classes_rf
+## observed.classes Covid Healthy
+##          Covid   0.250   0.036
+##          Healthy 0.500   0.214
+
+## Confusion Matrix and Statistics
+## 
+##           Reference
+## Prediction Covid Healthy
+##    Covid       7      14
+##    Healthy     1       6
+##                                           
+##                Accuracy : 0.4643          
+##                  95% CI : (0.2751, 0.6613)
+##     No Information Rate : 0.7143          
+##     P-Value [Acc > NIR] : 0.998551        
+##                                           
+##                   Kappa : 0.1176          
+##                                           
+##  Mcnemar's Test P-Value : 0.001946        
+##                                           
+##             Sensitivity : 0.8750          
+##             Specificity : 0.3000          
+##          Pos Pred Value : 0.3333          
+##          Neg Pred Value : 0.8571          
+##              Prevalence : 0.2857          
+##          Detection Rate : 0.2500          
+##    Detection Prevalence : 0.7500          
+##       Balanced Accuracy : 0.5875          
+##                                           
+##        'Positive' Class : Covid     
+```
+
+### Result of the ML analysis
+
+|testDataGr$Group|Covid|Healthy|predicted.classes_rf|
+|----------------|-----|-------|--------------------|
+|ML305|Healthy|0.532|0.468|Covid|
+|ML308|Healthy|0.522|0.478|Covid|
+|ML312|Covid|0.552|0.448|Covid|
+|ML320|Healthy|0.448|0.552|Covid|
+|ML330|Covid|0.504|0.496|Covid|
+|ML331|Healthy|0.458|0.542|Healthy|
+|ML336|Covid|0.564|0.436|Covid|
+|ML340|Healthy|0.518|0.482|Covid|
+|ML341|Healthy|0.528|0.472|Covid|
+|ML342|Covid|0.544|0.456|Covid|
+|ML350|Covid|0.53|0.47|Covid|
+|ML351|Healthy|0.486|0.514|Healthy|
+|ML357|Covid|0.442|0.558|Healthy|
+|ML363|Healthy|0.504|0.496|Covid|
+|ML373|Healthy|0.448|0.552|Healthy|
+|ML374|Healthy|0.476|0.524|Healthy|
+|ML375|Healthy|0.444|0.556|Covid|
+|ML381|Healthy|0.456|0.544|Healthy|
+|ML382|Healthy|0.544|0.456|Covid|
+|ML383|Healthy|0.53|0.47|Covid|
+|ML384|Healthy|0.44|0.56|Healthy|
+|ML391|Healthy|0.47|0.53|Covid|
+|ML392|Healthy|0.494|0.506|Covid|
+|ML405|Covid|0.486|0.514|Covid|
+|ML408|Covid|0.512|0.488|Covid|
+|X8273|Healthy|0.54|0.46|Covid|
+|ML376|Healthy|0.492|0.508|Covid|
+|ML393|Healthy|0.538|0.462|Covid|
