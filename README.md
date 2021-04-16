@@ -50,7 +50,7 @@ write.table(Mval, "MethylationValueData_COVID-19.txt", sep = "\t", quote = F)
 
 The analysis resulted into 2 CpG sites and annotation revealed that these two are present in two different chromosomes, Chr 17 and Chr 22. The calculated β values for each participants were showed in the violin plot (**<u>Figure 1</u>**).
 
-<img src="/home/jyoda68/Desktop/Link to BackUp_All/SignatureData/COVID-19/Figures/ViolinPlot_SignificantCpGs.pg.png" alt="ViolinPlot_SignificantCpGs.pg" style="zoom:50%;" />
+
 
 **<u>Figure 1</u>**: The violin plot illustrates the β values of the significantly methylated CpGs in each individual. The orange color violin represents the patients and the red dots are each individual while light green color violins are from the control population and dark green circles represent each individual. The Y and X axes show the β values and sample group, respectively.
 
@@ -110,7 +110,7 @@ Next, we performed StringDB analysis on the first interacting neighbors of those
 
 We obtained a total of 76 interacting human proteins using these 2 DMGs using the BioGRID data. We extracted the interactors from the dataset and used in the Cytoscape (v3.8) to visualize the interacting network. We then performed the StringDB analysis on these interactome (see method) and obtained strong interaction result (**<u>Figure 2</u>**). In the analysis, we observed that Fibronectin (FN1) and Tran-Golgi Network Protein 2 (TGOLN2) are common interactors between the two DMGs. Four genes,  ITGA8, ITGA9, RASGRP2 and TRIM71 are showed to not annotated by StringDB dataset.
 
-<img src="/home/jyoda68/Desktop/Link to BackUp_All/SignatureData/Final_InteractomePM.png" alt="Final_InteractomePM" style="zoom:67%;" />
+
 
 **<u>Figure 2</u>**: The figure illustrates the interactome of the two identified significant DMGs. The light glass colors applied from the default StringDB database and the edges show the physical interaction among the interactors. Four genes which have solid colored circles (green: RASGRP2, blue: TRIM71, sea green: ITGA9 and light sea green: ITGA8) are not annotated by StringDB network.
 
@@ -141,7 +141,6 @@ Table -1: Four significantly overrepresented pathways derived from the enrichmen
 
 We calculated the gene ratio and the false discovery rates to locate the strongest pathway among these four and observed that Clathrin-mediated endocytosis from the reactome database has more genes from our list including those two DMGs (**<u>Figure 4</u>**). 
 
-![PathwayEnrichhment](/home/jyoda68/Desktop/Link to BackUp_All/SignatureData/PathwayEnrichhment.png)
 
 **<u>Figure 4:</u>** Top 4 pathways those contain both DMGs from our data. Gene count calculates the number of genes from our data, Gene ratio was calculated as the ratio of genes present in our data over the number of genes for the respective pathway in the databases. FDR represents the BH-corrected *p*-values. Circle size determines the gene count and color depicts the FDR value.
 
